@@ -5,7 +5,7 @@ import cv2
 
 def pre_process(img):
     inImg = read_cv2_images(img)
-    cv2.write('test.png', inImg)
+    cv2.imwrite('test.png', inImg)
     return img
 def read_cv2_images(img):
     readStream = io.BytesIO(img)
