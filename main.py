@@ -9,7 +9,7 @@ def index():
     return {'data' : 'IPPR'}
 
 @app.post('/api/image')
-async def imgUpload(file: UploadFile = File(...)):
+async def imgUpload(file: bytes = File(...)):
     read_image.pre_process(file)
     return {'image':'loaded successfully'}
 
