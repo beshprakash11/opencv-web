@@ -1,5 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 import uvicorn
+from imgproc import read_image
 
 app = FastAPI()
 
@@ -8,8 +9,9 @@ def index():
     return {'data' : 'IPPR'}
 
 @app.post('/api/image')
-async def imgUpload(file:UploadFile = File(...)):
-    return {'image' : 'sample image'}
+async def imgUpload(file: UploadFile = File(...)):
+    read_image.pre_process(file)
+    return {'image':'loaded successfully'}
 
 @app.get('/api/network/image')
 async def readImage():
