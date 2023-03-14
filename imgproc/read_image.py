@@ -4,11 +4,8 @@ import io
 import cv2
 
 def pre_process(img):
-    imgData = {'success' : False}
-    if img is None:
-        return imgData
     
-    return imgData
+    return img
 def read_cv2_images(img):
     readStream = io.BytesIO(img)
     image =  np.asarray(bytearray(readStream.read()), dtype="uint8")
