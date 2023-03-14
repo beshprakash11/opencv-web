@@ -1,11 +1,14 @@
 import numpy as np
 
 import io
-import json
 import cv2
-import os
 
-
+def pre_process(img):
+    imgData = {'success' : False}
+    if img is None:
+        return imgData
+    
+    return imgData
 def read_cv2_images(img):
     readStream = io.BytesIO(img)
     image =  np.asarray(bytearray(readStream.read()), dtype="uint8")
