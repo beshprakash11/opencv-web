@@ -1,6 +1,12 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
+
+
 app = FastAPI()
 
 @app.get('/')
 def index():
-    return {'data' : 'firest img processing'}
+    return {'data' : 'IPPR'}
+
+@app.post('/api/image')
+async def imgUpload(file:UploadFile = File(...)):
+    return {'image' : 'sample image'}
